@@ -1,0 +1,7 @@
+Threshold = 90
+DisplayMonitorSources = false
+EnableUpdates = true
+FilterInput = true
+FilterOutput = false
+LastUsedInput = "alsa_input.usb-Razer_Inc_Razer_Seiren_Mini_UC2150L03204467-00.mono-fallback"
+LastUsedOutput = ""
