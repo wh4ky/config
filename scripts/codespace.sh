@@ -1,17 +1,8 @@
 #!/usr/bin/env bash
 
-echo "Updating"
 sudo apt-get update
-sudo apt-get install build-essential
+sudo apt-get install software-properties-common
 
-echo "Installing brew"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < <(yes "\n") # install brew
-
-# Put brew packages in $PATH
-echo >>$HOME/.zshrc
-echo >>$HOME/.bashrc
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>$HOME/.zshrc
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>$HOME/.bashrc
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-brew install gcc nvim tree-sitter
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt-get update
+sudo apt-get install neovim
