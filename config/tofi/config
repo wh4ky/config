@@ -1,0 +1,31 @@
+hint-font = true
+multi-instance = false
+late-keyboard-init = true
+ascii-input = true
+matching-algorithm = fuzzy
+text-cursor = true
+
+terminal = alacritty -e
+
+width = 100%
+height = 100%
+
+font = ~/.fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf
+font-size = 12
+
+prompt-text = "App: "
+prompt-padding = 4
+
+text-color = #ede9fe
+selection-color = #c4b4ff
+selection-match-color = #c4b4ff
+background-color = #06001cBF
+
+outline-width = 0
+border-width = 2
+border-color = #5d0ec0
+padding-left = 35%
+padding-top = 35%
+result-spacing = 10
+num-results = 20
+corner-radius = 0

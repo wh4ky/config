@@ -1,0 +1,63 @@
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: 'Open Sans', 'Noto Emoji', 'Lexend', 'Hack', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0);
+    color: #ede9fe;
+}
+
+#workspaces button {
+    all: initial;
+    min-width: 0;
+    padding: 2px 4px;
+    color: #ede9fe;
+}
+
+#workspaces.active {
+    color: #c4b4ff;
+}
+
+tooltip {
+    background-color: rgba(6, 0, 28, 0.75); /* #06001c */
+    border: 2px solid #5d0ec0;
+    color: #ede9fe;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#network,
+#clock,
+#battery,
+#idle_inhibitor,
+#backlight,
+#memory,
+#cpu,
+#temperature,
+#pulseaudio { 
+    background-color: rgba(0, 0, 0, 0);
+    color: #ede9fe;
+    padding: 0 2px;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}

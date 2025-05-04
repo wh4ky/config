@@ -1,0 +1,123 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "cpu",
+        "memory",
+        "temperature",
+        "clock"
+    ],
+    "modules-right": [
+	"tray",
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "network",
+        "idle_inhibitor",
+	"custom/notification",
+        "custom/power"
+    ],
+    "hyprland/workspaces": {
+	"format": " {name} ",
+        "disable-scroll": true,
+	"all-outputs": false,
+	"warp-on-scroll": false
+    },
+    "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+        "notification": "<span foreground='red'><sup></sup></span>",
+        "none": "  ",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-none": "  ",
+        "inhibited-notification":  "<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "  ",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": "  "
+    },
+    "return-type": "json",
+	"exec-if": "which swaync-client",
+      	"exec": "swaync-client -swb",
+      	"on-click": "swaync-client -t -sw",
+      	"on-click-right": "swaync-client -d -sw",
+      	"escape": true
+    },
+    "idle_inhibitor": {
+        "format": " {icon} ",
+        "format-icons": {
+            "activated": "☕",
+            "deactivated": "⏳"
+        },
+	"tooltip": false
+    },
+    "tray": {
+    	"icon-size": 21,
+	"spacing": 10,
+        "show-passive-items": true
+    },
+    "clock": {
+        "timezone": "UTC",
+	"locale": "nl_NL.UTF-8",
+	"format": "   {:%OH:%OM - %a, %d %b %Y} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+        "format": " 🔲 {usage}% ",
+	"interval": 1,
+        "tooltip": false
+    },
+    "memory": {
+        "format": " 💾 {}% ",
+	"interval": 2
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format": " 🌡️ {temperatureC}°C "
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": " {percent}% {icon} ",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": " {capacity}% {icon} ",
+        "format-full": " {capacity}% {icon} ",
+        "format-charging": " {capacity}%  ",
+        "format-plugged": " {capacity}%  ",
+        "format-alt": " {time} {icon} ",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi" : " 🛜 {bandwidthDownBits} ",
+        "format-ethernet": " 🔌 {bandwidthDownBits} ",
+        "format-disconnected" : " ⛔🔌🛜 ",
+        "interval": 5,
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": " 🔊 ",
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format" : "  ⏻  ",
+	"tooltip": false,
+	"on-click": "wlogout"
+    }
+}
